@@ -1,0 +1,48 @@
+<view>
+  <name>TWEETS_MAP</name>
+  <label>A view showing in NRT geolocalized tweets.</label>
+  <version>0.0.1</version>
+  <parameter>
+    <name>kafka.brokers</name>
+    <description>The list of Kafka brokers to listen at.</description>
+    <label>Kafka Brokers</label>
+    <default-value>sandbox.hortonworks.com:6667</default-value>
+    <required>true</required>
+  </parameter>
+  <parameter>
+    <name>zookeper.solr.url</name>
+    <description>The list of Zookeper Hosts for connecting to Solr.</description>
+    <label>Zookeper Hosts Solr connection string</label>
+    <default-value>sandbox.hortonworks.com:2181/ambari-solr</default-value>
+    <required>true</required>
+  </parameter>
+  <parameter>
+    <name>kafka.topic</name>
+    <description>The Kafka topic to listen at.</description>
+    <label>Kafka Topic</label>
+    <required>true</required>
+  </parameter>
+  <parameter>
+    <name>google.key</name>
+    <description>The Google key to be used for the map.</description>
+    <label>Google Key</label>
+    <required>true</required>
+    <placeholder>GOOGLE_KEY</placeholder>
+  </parameter>
+  <instance>
+    <name>BIG_DATA_TWEETS</name>
+    <label>Big Data Tweets</label>
+    <property>
+    	<key>kafka.topic</key>
+    	<value>tw_elaborato</value>
+  	</property>
+    <property>
+      <key>google.key</key>
+      <value>AIzaSyD0gGQknNR9zLYZHkca2lXG1tKX6-482R8</value>
+    </property>
+  </instance>
+  <resource>
+    <name>metrics</name>
+    <service-class>it.ecubecenter.ambari_view.SolrRestServlet</service-class>
+  </resource>
+</view>

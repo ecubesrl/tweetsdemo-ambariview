@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+         version="2.4">
+
+  <display-name>WebSocket Example</display-name>
+  <description>
+    This is the websocket servlet view example application.
+  </description>
+  
+	<servlet>
+    	<servlet-name>WebSocketEndpoint</servlet-name>
+    	<servlet-class>it.ecubecenter.ambari_view.websocket.KafkaWebsocketServlet</servlet-class>
+  	</servlet>
+
+    <servlet>
+        <servlet-name>WebPage</servlet-name>
+        <servlet-class>it.ecubecenter.ambari_view.WebPageServlet</servlet-class>
+    </servlet>
+
+  	<servlet-mapping>
+        <servlet-name>WebSocketEndpoint</servlet-name>
+        <url-pattern>/websocket/kafkaConsumer</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>WebPage</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.html</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.jpg</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.png</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.css</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.js</url-pattern>
+    </servlet-mapping>
+
+</web-app>
